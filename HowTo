@@ -1,0 +1,21 @@
+How to show and hide form fields based on the value of another field.
+
+In the example below, the field (in step 1) is a select list.  When the user selects the "approve" value
+specific fields should show in the form.  If the user selects anything else, those same fields should be hidden.
+
+1) In the field whose value will be examined, use something like the following code in the "onchange" event
+
+(function() {
+	var currVal = field.getValue();
+	if (currVal == "approver") {
+		field.fireEvent("showApproverFields")
+	} else {
+		field.fireEvent("hideApproverFields")	}
+})();
+
+2) In each field you want to hide or show, create an event named "showApproverFields" with the code: 
+field.show().  
+
+Also create an event named "hideApproverFields" with the code: 
+field.hide()
+
